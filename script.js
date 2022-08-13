@@ -26,6 +26,7 @@ function checkInputBananaTrue(text) {
 const input = document.querySelector("#input");
 const checkBtn1 = document.querySelector("#check-btn1");
 const chartReplace = document.querySelector("#chart-replace");
+const outputCart = document.querySelector("#output-chart");
 
 checkBtn1.addEventListener("click", replaceMostOccurredChart);
 
@@ -33,6 +34,9 @@ function replaceMostOccurredChart() {
   const maxLetter = findMostOccurredChart(input.value);
   chartReplace.innerHTML = input.value.replaceAll(maxLetter.letter, "😎");
   input.value = "";
+  outputCart.innerHTML = `Most occurred letter:  ${maxLetter.letter.toUpperCase()} repeat ${
+    maxLetter.counter
+  } times`;
 }
 
 function findMostOccurredChart(string) {
