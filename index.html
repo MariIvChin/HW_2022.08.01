@@ -51,7 +51,7 @@
           id="chart-replace"
         ></h5>
         <br /><br />
-        <button id="check-btn" class="btn btn-success">
+        <button id="check-btn1" class="btn btn-success">
           Replace most occurred chart</button
         ><br /><br />
       </div>
@@ -69,20 +69,17 @@
           id="message-output"
         ></h5>
         <br /><br />
-        <button class="btn btn-success" onclick="getRandomMessage()">
+        <button id="check-btn3" class="btn btn-success">
           Get random message</button
         ><br /><br />
       </div>
-      <div
-        class="border border-3 w-50 m-3 p-3 border-success rounded-4"
-        id="days-count"
-      >
+      <div class="border border-3 w-50 m-3 p-3 border-success rounded-4">
         <h4>You can to count days between two dates here 👇</h4>
         <br /><br />
         <label for="fromdate">From date:</label>
-        <input type="date" name="from" id="fromdate" /><br /><br />
+        <input type="date" name="from" id="from-date" /><br /><br />
         <label for="todate">To date:</label>
-        <input type="date" name="to" id="todate" /><br /><br />
+        <input type="date" name="to" id="to-date" /><br /><br />
         <label for="output">Output</label><br />
         <h5
           style="
@@ -90,12 +87,12 @@
             background-color: greenyellow;
             border: 2px solid rgb(73, 72, 72);
             border-radius: 7px;
+            color: rgb(61, 61, 61);
           "
           id="answer-output"
         ></h5>
         <br /><br />
-        <button class="btn btn-success" onclick="countDaysBetweenDates()">
-          Count days</button
+        <button id="check-btn4" class="btn btn-success">Count days</button
         ><br /><br />
       </div>
     </div>

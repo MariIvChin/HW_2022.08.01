@@ -23,18 +23,44 @@ function checkInputBananaTrue(text) {
 }
 
 // ----Exercise #2----
-const chartReplace = document.querySelector("#chart-replace");
 const input = document.querySelector("#input");
-const checkBtn1 = document.querySelector("#check-btn");
+const checkBtn1 = document.querySelector("#check-btn1");
+const chartReplace = document.querySelector("#chart-replace");
 
-checkBtn1.addEventListener("click", replaceMostOccurredChart());
+checkBtn1.addEventListener("click", replaceMostOccurredChart);
 
-function replaceMostOccurredChart() {}
+function replaceMostOccurredChart() {
+  const maxLetter = findMostOccurredChart(input.value);
+  chartReplace.innerHTML = input.value.replaceAll(maxLetter.letter, "😎");
+}
 
-function findMostOccurredChart() {}
+function findMostOccurredChart(string) {
+  const letterCounter = {};
+
+  for (const letter of string) {
+    if (letterCounter[letter]) {
+      letterCounter[letter]++;
+    } else {
+      letterCounter[letter] = 1;
+    }
+  }
+
+  let max = {
+    letter: null,
+    counter: 0,
+  };
+  for (const letter in letterCounter) {
+    if (letterCounter[letter] > max.counter) {
+      max.counter = letterCounter[letter];
+      max.letter = letter;
+    }
+  }
+
+  return max;
+}
 
 // ----Exercise #2 Daniel----
-// get elements
+// //get elements
 // const myInp = document.querySelector("#my-inp");
 // const checkBtn2 = document.getElementById("check");
 // const result = document.getElementById("result");
@@ -73,6 +99,7 @@ function findMostOccurredChart() {}
 
 // ----Exercise #3----
 const messageOutput = document.getElementById("message-output");
+const checkBtn3 = document.getElementById("check-btn3");
 
 const messagesList = [
   "Hello!",
@@ -92,16 +119,23 @@ function getRandomNumber() {
   return result;
 }
 
-function getRandomMessage() {
+checkBtn3.addEventListener("click", function () {
   let index = getRandomNumber(0, messagesList.length);
   messageOutput.innerHTML = messagesList[index];
-}
+});
 
 // ----Exercise #4----
-const daysCount = document.querySelector("#days-count");
-console.dir(daysCount);
+const fromDate = document.querySelector("#from-date");
+const toDate = document.querySelector("#to-date");
+const checkBtn4 = document.getElementById("check-btn4");
+const answerOutput = document.querySelector("#answer-output");
 
-// Check Input1.value="date1" > Check Input2.value="date2", return to output.value count of days
-// 1. create fun1 - ? new Date().get....
-// 2. create fun2 - html output
-// 3. create fun3 - onclick="countDaysBetweenDates()"
+checkBtn4.addEventListener("click", countDaysBetweenDates);
+
+function countDaysBetweenDates() {
+  const fDate = new Date(fromDate.value);
+  const tDate = new Date(toDate.value);
+  const countDiffInTime = tDate.getTime() - fDate.getTime();
+  const countDiffInDays = countDiffInTime / 1000 / 60 / 60 / 24;
+  answerOutput.innerHTML = `The count of days is: <br/> ${countDiffInDays} days`;
+}
