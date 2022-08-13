@@ -32,6 +32,7 @@ checkBtn1.addEventListener("click", replaceMostOccurredChart);
 function replaceMostOccurredChart() {
   const maxLetter = findMostOccurredChart(input.value);
   chartReplace.innerHTML = input.value.replaceAll(maxLetter.letter, "😎");
+  input.value = "";
 }
 
 function findMostOccurredChart(string) {
